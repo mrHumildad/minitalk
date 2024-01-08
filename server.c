@@ -6,17 +6,18 @@ void sig_handler(int sig)
 {
     if (sig == SIGUSR1)
     {
-        printf("recived byte 0");
+        printf("recived byte 0\n");
     }
     else
-        printf("recived byte 1");
+        printf("recived byte 1\n");
 }
 
 int main(void)
 {
     printf("PID : %i\n", getpid());
-    return (0);
-
+    signal(SIGUSR1, sig_handler);
+    signal(SIGUSR2, sig_handler);
+    usleep(42);
     while (1)
 		pause();
 }
