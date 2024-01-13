@@ -42,11 +42,12 @@ int main(int ac, char **av)
     i = 0;
     pid = atoi(av[1]);
 //    str2bytes(av[2]);
-    while (av[2][i] != 0)
+    while (av[2][i])
     {
-        print_bytes(av[2][i]);
+        //print_bytes(av[2][i]);
         send_sig(pid, av[2][i]);
         i++;
     }
+	send_sig(pid, '\0');
     return (0);
 }
